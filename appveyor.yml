@@ -18,7 +18,7 @@ install:
   - appveyor DownloadFile https://github.com/fttx/barcode-to-pc-server/blob/master/electron/electron-resources/Bonjour64.msi?raw=true
   - msiexec /i Bonjour64.msi /qn
   - del Bonjour64.msi
-  - appveyor DownloadFile -url "https://download.developer.apple.com/Developer_Tools/bonjour_sdk_for_windows_v3.0/bonjoursdksetup.exe"
+  - appveyor DownloadFile -url "https://softpedia-secure-download.com/dl/d322e516e8a3e8a9b13dfe6457abf7dd/5ff207b0/100159413/software/programming/bonjoursdksetup.exe"
   - bonjoursdksetup.exe /quiet
   - del bonjoursdksetup.exe
 
