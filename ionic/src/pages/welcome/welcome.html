@@ -23,7 +23,7 @@
       <h3>2) Launch the app and scan this QR code to connect</h3>
       <qr-code [value]="qrCodeUrl" [size]="240"></qr-code>
 
-      <div *ngIf="electronProvider.isDev()">
+      <div>
         <br>
         <button ion-button (click)="onSkipClick()">Skip</button>
       </div>

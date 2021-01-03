@@ -29,7 +29,7 @@ export class ActivatePage {
   }
 
   onActivationClick() {
-    this.licenseProvider.updateSubscriptionStatus(this.serial);
+    //this.licenseProvider.updateSubscriptionStatus(this.serial);
   }
 
   onDeactivateClick() {
