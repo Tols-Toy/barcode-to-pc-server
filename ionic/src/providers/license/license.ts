@@ -94,7 +94,7 @@ export class LicenseProvider {
    */
   updateSubscriptionStatus(serial: string = '') {
     // this.activePlan = this.store.get(Config.STORAGE_SUBSCRIPTION, LicenseProvider.PLAN_FREE)
-	this.activePlan = PLAN_UNLIMITED
+	this.activePlan = LicenseProvider.PLAN_UNLIMITED
 
     if (serial) {
       this.serial = serial;
