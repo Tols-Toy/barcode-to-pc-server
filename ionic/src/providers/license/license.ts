@@ -38,7 +38,7 @@ export class LicenseProvider {
   public static PLAN_PRO = 'barcode-to-pc-pro-license';
   public static PLAN_UNLIMITED = 'barcode-to-pc-unlimited-license';
 
-  public activePlan = LicenseProvider.PLAN_FREE;
+  public activePlan = LicenseProvider.PLAN_UNLIMITED;
   public serial = '';
 
   private store: ElectronStore;
@@ -93,7 +93,8 @@ export class LicenseProvider {
    * If the serial is passed it'll prompt the user with dialogs
    */
   updateSubscriptionStatus(serial: string = '') {
-    this.activePlan = this.store.get(Config.STORAGE_SUBSCRIPTION, LicenseProvider.PLAN_FREE)
+    // this.activePlan = this.store.get(Config.STORAGE_SUBSCRIPTION, LicenseProvider.PLAN_FREE)
+	this.activePlan = PLAN_UNLIMITED
 
     if (serial) {
       this.serial = serial;
@@ -132,7 +133,7 @@ export class LicenseProvider {
           console.log('upgrade')
           this.store.set(Config.STORAGE_NEXT_CHARGE_DATE, this.generateNextChargeDate());
           this.store.set(Config.STORAGE_SUBSCRIPTION, value['plan']);
-          this.activePlan = value['plan'];
+          this.activePlan = LicenseProvider.PLAN_UNLIMITED;
         }
 
         if (serial) {
@@ -194,7 +195,7 @@ export class LicenseProvider {
    */
   deactivate(clearSerial = false) {
     let downgradeToFree = () => {
-      this.activePlan = LicenseProvider.PLAN_FREE;
+      this.activePlan = LicenseProvider.PLAN_UNLIMITED;
       this.store.set(Config.STORAGE_SUBSCRIPTION, this.activePlan);
 
       let settings: SettingsModel = this.store.get(Config.STORAGE_SETTINGS, new SettingsModel());
